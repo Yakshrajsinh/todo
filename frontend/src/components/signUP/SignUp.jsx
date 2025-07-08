@@ -17,7 +17,7 @@ const SignUp = () => {
   }
   const submit=async (e)=>{
     e.preventDefault()
-    await axios.post(`${import.meta.env.BACKEND_URL}/api/user/register`,Inputs)
+    await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/user/register`,Inputs)
     .then((responce)=>{
       console.log("responce",responce)
       if(responce.data.message === "email already exists"){

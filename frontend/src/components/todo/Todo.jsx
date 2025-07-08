@@ -21,7 +21,7 @@ const Todo = () => {
         }
     }
      const fetchTask = async()=>{
-            await axios.get(`${import.meta.env.BACKEND_URL}/api/list/getTask/${userId}`)
+            await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/list/getTask/${userId}`)
             .then((res)=>{
                 setArrey(res.data.list);
             })            
@@ -40,7 +40,7 @@ const Todo = () => {
             toast.error("Title or Body should not be empty")
         } else {
             if (userId) {
-                await axios.post(`${import.meta.env.BACKEND_URL}/api/list/addTask`, {
+                await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/list/addTask`, {
                     title: Inputs.title,
                     body: Inputs.body,
                     id: userId
@@ -62,7 +62,7 @@ const Todo = () => {
     }
     const del = async(cardId) => {
         if(userId){
-        await axios.delete(`${import.meta.env.BACKEND_URL}/api/list/deleteTask/${cardId}`,{data:{id:userId}})
+        await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/list/deleteTask/${cardId}`,{data:{id:userId}})
         .then(()=>{
             toast.success("Your task is deleted")
             fetchTask()

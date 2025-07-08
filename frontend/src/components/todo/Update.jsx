@@ -13,7 +13,7 @@ const Update = ({display,update,fetchTask}) => {
       setInputs({...Inputs,[name]:value})
     }
     const submit=async()=>{
-      await axios.put(`${process.env.BACKEND_URL}/api/list/updateTask/${update._id}`,Inputs)
+      await axios.put(`${import.meta.env.VITE_BACKEND_URL}/api/list/updateTask/${update._id}`,Inputs)
       .then(()=>{
         toast.success("your task has been updated");
         fetchTask()

@@ -23,7 +23,7 @@ const SignIn = () => {
     const submit=async(e)=>{
         e.preventDefault()
         await axios
-        .post(`${import.meta.env.BACKEND_URL}/api/user/LogIn`,Inputs)
+        .post(`${process.env.BACKEND_URL}/api/user/LogIn`,Inputs)
         .then((res)=>{
             if(res.data.message==="user not found" || res.data.message==="your password is incorrect"){
                 alert(res.data.message)
